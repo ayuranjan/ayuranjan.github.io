@@ -44,8 +44,8 @@
                     <li><a href="https://www.linkedin.com/in/ayuranjan/" title="Linkedin Profile" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                     <li><a href="https://github.com/ayuranjan" title="Github Profile"target="_blank"><i class="fa fa-github"></i></a></li>
                      <li><a href="https://leetcode.com/ayuranjan/" title="Leetcode Profile" target="_blank"><i class="fa fa-code"></i></a></li>
-                     <li><a href="https://auth.geeksforgeeks.org/user/ayuranjan" title="GeekForGeeks Profile" target="_blank"><i class="fa fa-code"></i></a></li>
-                     <li><a href="https://www.hackerrank.com/ayushranjancr7" title="HackerRank Profile" target="_blank"><i class="fa fa-code"></i></a></li>
+                     <li><a href="https://auth.geeksforgeeks.org/user/ayuranjan" title="GeekForGeeks Profile" target="_blank"><i class="fa fa-bug"></i></a></li>
+                     <li><a href="https://www.hackerrank.com/ayushranjancr7" title="HackerRank Profile" target="_blank"><i class="fa fa-archive"></i></a></li>
                 </ul>
               
             </div><!--//profile-->
@@ -65,7 +65,9 @@
                             <p>My focus then shifted towards the software industry and development. I honed my skills during an internship at Capgemini, where I served as a <b>Senior Analyst Intern</b> and <b>Java Full Stack Developer</b>. There, I had the opportunity to lead a team of 6 interns in developing a Medical Portal using Spring Boot for the backend and React for the frontend. I seamlessly integrated the frontend and backend via Axios, enhancing user experience and data security.</p>
                             <p>Afterward, I received a full-time offer as a <b>Senior Analyst at Capgemini</b> in Mumbai. In this role, I worked on the <b>Mercedes-Benz project</b> XDIS (Cross-platform Data Information System), a crucial tool for vehicle diagnostics and automatic driving scenarios. Leveraging my Java expertise, I enhanced software features, optimized various tools/modules, and introduced innovative ideas recognized within the Mercedes-Benz ecosystem. I proudly achieved <b>3rd place</b> among 60 competing groups at <b>Innocircle 2022</b>, Mercedes' Internal Innovation forum, showcasing my commitment to innovation.</p>
                             <p>Subsequently, I was promoted to <b>Associate Consultant</b> in my job. After more than two years of working experience, I decided to pursue specialized knowledge by enrolling in a <b>Master's in Computer Science</b> program at the <a href="https://www.ucsc.edu">University of California, Santa Cruz</a>. My journey in the world of technology continues, driven by a passion for innovation and a commitment to contributing to the digital realm.</p>
-                            <p>I'm a big fan of football(soccer), both as a player and a spectator. I find pure joy in the game. Beyond the football field, I'm an avid reader, especially when it comes to non-fiction books about technology and its impact on our world.I'm also deeply inspired by the Indian epics, the <b>Mahabharata and the Ramayana</b>, which I believe hold timeless wisdom and captivating tales. When I'm not chasing a football or immersed in a good book, you can often spot me on the cricket pitch, enjoying every moment of this beloved sport.</p>
+                            <p>At UCSC, I dedicated myself to the <b>Applied Machine Learning: Deep Learning</b> course, where I excelled and secured the <b>top position in the Final Project Competition hosted on Kaggle</b>. Currently, I am deeply engrossed in the field of Neural Computation, aiming to broaden my understanding of neural networks. My focus lies on my project titled "Unveiling Glitches: A Deep Dive into Image Encoding Bugs within CLIP."
+                            <p>In addition, I am further expanding my knowledge in databases by enrolling in the <b>Design and Implementation of Database Systems</b> course. My goal is to develop a comprehensive understanding of database management principles. Simultaneously, I am actively engaged in learning about <b>vector databases</b>, particularly <b>pgvector</b>. I am working towards enhancing the capabilities of vector databases by facilitating the diversification of response sets, implementing dissimilarity constraints, and enabling the low-level composition of multiple queries.</p>
+                            <p>Apart from studies, I'm a big fan of football(soccer), both as a player and a spectator. I find pure joy in the game. Beyond the football field, I'm an avid reader, especially when it comes to non-fiction books about technology and its impact on our world. I'm also deeply inspired by the Indian epics, the <b>Mahabharata and the Ramayana</b>, which I believe hold timeless wisdom and captivating tales. When I'm not chasing a football or immersed in a good book, you can often spot me on the cricket pitch, enjoying every moment of this beloved sport.</p>
                         </div><!--//content-->
                     </div><!--//section-inner-->
                 </section><!--//section-->
@@ -85,7 +87,12 @@
                                     </div>
 
                                 <div class="desc text-left">
-                                    <p>Implemented and trained a <b>Convolutional Neural Net (CNN)</b> model to predict the sentiment of a phrase(text) on the IMDb dataset, by leveraging word embeddings (Glove) as the initial representations. Our final model provided us with a test accuracy of <b>87</b>, validation accuracy of <b>89</b>, and training accuracy of <b>88</b>.</p>
+                                    <p>The project is based on implementing <b>Convolutional Neural Networks (CNN)</b> for sentence classification, inspired by the paper <a href="https://arxiv.org/pdf/1408.5882.pdf" target="_blank">"Convolutional Neural Networks for Sentence Classification"</a> presented at EMNLP 2014. The aim is to extract features from text using different filter sizes and numbers to learn various n-gram features.</p>
+                                    <p>The project utilizes the <b>Spacy</b> library for various NLP tasks such as tokenization, lemmatization, part-of-speech tagging, entity recognition, and dependency parsing. <b>The CNN architecture is designed with multiple convolutional layers of different filter sizes (2, 3, 4, and 5) to capture bi-gram, tri-gram, 4-gram, and 5-gram features respectively</b>. Dropout regularization is applied to prevent overfitting.</p>
+                                    <p>The dataset is split into training, validation, and test sets, with the vocabulary size limited to 50,002 words, including special tokens for padding and unknown words. Each word is represented using one-hot encoding and passed through an embedding layer to convert them into word embeddings.</p>
+                                    <p>The forward method of the model involves passing the text data through the embedding layer, followed by separate convolutional layers for each filter size. After applying the convolutional layers, the output tensor is passed through <b>ReLU</b> activation to introduce non-linearity. The resulting feature maps are then concatenated and passed through a linear layer for sentiment prediction.
+                                        The model is trained using the <b>Adam optimizer</b> and <b>BCEWithLogitsLos</b> function, which combines sigmoid activation and binary cross-entropy loss. The initial representations of word embeddings are obtained from pre-trained GloVe embeddings.</p>
+                                    <p>After training the model for just 5 epochs, it achieves a <b>test accuracy of 87%, a validation accuracy of 89%, and a training accuracy of 88%</b>. Overall, the project demonstrates the effectiveness of CNNs in text classification tasks.</p>
                                 </div><!--//desc-->
                                 <a class="btn btn-cta-secondary" href="https://github.com/ayuranjan/Sentiment-Analysis-using-CNN-" target="_blank"><i class="fa fa-spinner fa-pulse"></i>More about this Project  </a>
                             </div><!--//item-->
@@ -98,7 +105,10 @@
                                 <div class="desc col-md-8 col-sm-8 col-xs-12">
                                     <h3 class="title">Video to Mp3 Converter <span class="label label-theme">Microservice</span> <span class="label label-theme">Software Enginnering</span></h3>
                                     <p>
-                                        Orchestrated a <b>microservice</b> architecture comprising authentication, authorization, upload, and conversion services using Python, <b>Flask</b>, <b>Docker</b>,and <b>Kubernetes</b>. Employed asynchronous communication using <b>RabbitMQ</b> queues to facilitate seamless video processing and conversion to MP3, ensuring efficient task distribution among services. Implemented <b>MongoDB</b> with <b>GridFS</b> for efficient storage and retrieval of large video files, overcoming MongoDB's 16MB size limit. Managed video and audio file storage, handling, and conversion while ensuring data integrity and secure storage mechanisms. Utilized Docker for containerization, Kubernetes for orchestration, and <b>Minikube</b> for local development, ensuring consistent and scalable deployment across environments.
+                                        Developed a <b>microservices</b>-based system with four services, including an authentication gateway, authorization service, video
+                                        upload service, and converter service. The gateway authenticates users via an authorization service, generating <b>JWT</b> tokens
+                                        for valid users, enabling secure video uploads. Video-to-MP3 conversion was facilitated using the Python library ”moviepy”. </p>
+                                    <p>Asynchronous communication using <b>RabbitMQ</b> queues to facilitate seamless video processing and conversion to MP3, ensuring efficient task distribution among services. Implemented <b>MongoDB</b> with <b>GridFS</b> for efficient storage and retrieval of large video files, overcoming MongoDB's 16MB size limit. Managed video and audio file storage, handling, and conversion while ensuring data integrity and secure storage mechanisms. Utilized <b>Docker</b> for containerization, <b>Kubernetes</b> for orchestration, and <b>Minikube</b> for local development, ensuring consistent and scalable deployment across environments.
                                
                                   <p><a class="more-link" href="https://github.com/ayuranjan/Video-to-Mp3-Converter" target="_blank"><i class="fa fa-external-link"></i> View on Github </a></p>
                                 </div><!--//desc-->
@@ -112,7 +122,7 @@
                                     <h3 class="title">Covid-19 Detection from CT-Scan <span class="label label-theme">AI</span></h3>
                                     <p class="summary"> <p>
                                     <p>
-                                        I tried applying <b>CNN</b> on CT dataset of just 350 Ct-Images of 219 peoples to identify covid and non covid patients used 4 convolutional layer followed by Max-pooling .To calculate loss , I used binary cross-entropy .used data augmentation and dropout to tackle overfitting.Got an accuracy of 60 % on such a small set of data .</p>
+                                        I applied <b>CNN</b> on CT dataset of just 350 Ct-Images of 219 peoples to identify covid and non covid patients used 4 convolutional layer followed by Max-pooling. To calculate loss, I used binary cross-entropy. Used data augmentation and dropout to tackle overfitting. Got an accuracy of 60 % on such a small set of data.</p>
                                   
                                     <p><a class="more-link" href="https://github.com/ayuranjan/COVID-19-" target="_blank"><i class="fa fa-external-link"></i> View on Github </a></p>
                                 </div><!--//desc-->
@@ -125,9 +135,11 @@
                                 <div class="desc col-md-8 col-sm-8 col-xs-12">
                                     <h3 class="title">Facial Attendance System <span class="label label-theme">AI</span> <span class="label label-theme">Software Enginnering</span></h3>
                                     <p class="summary">Supervised by: Ginika Mahajan   <p>
-                                    <p>
-                                        facial recognition is done using inbuilt facial_recognition library in <b>python and OpenCV</b> . GUI is made using <b>Tkinter</b> .It recognised a face through images in the database and add his/her name to the attendence sheet . Elevated user interaction by integrating <b>Google Text-to-Speech (gTTS)</b> technology to deliver personalized welcome messages
-                                        to recognized individuals</p>
+                                    <p>Utilizing <b>OpenCV</b>, the system captures image frames and employs <b>Haar features and Cascade Classifiers</b> to detect faces
+                                        within them. Identified faces are then compared against a database for identification. Attendance records of recognized
+                                        individuals, including date and time stamps, are logged, with the capability to retrieve historical data using names.</p>
+                                    <p>The GUI, built with <b>Tkinter</b>, encompasses attendance features and admin query capabilities for login times. Integration of
+                                        <b>Google Text-to-Speech</b> enhances user interaction with personalized welcome messages for recognized individuals.</p>
                                
                                   <p><a class="more-link" href="https://github.com/ayuranjan/Facial-Attendance-System" target="_blank"><i class="fa fa-external-link"></i> View on Github </a></p>
                                 </div><!--//desc-->
@@ -140,7 +152,7 @@
                                 <div class="desc col-md-8 col-sm-8 col-xs-12">
                                     <h3 class="title">Personal Website using React  <span class="label label-theme">Software Engineering</span></h3>
                                     <p class="summary"> <p>
-                                    <p>Designed and developed a website made using <b>React , Bootstrap, JavaScript, HTML and CSS</b>. </p>
+                                    <p>Designed and developed a personal website using <b>React , Bootstrap, JavaScript, HTML and CSS</b>. Deployed the website using <b>Github Pages.</b> </p>
                                     <p><a class="more-link" href="https://github.com/ayuranjan/MyWebsite" target="_blank"><i class="fa fa-external-link"></i> View on Github </a></p>
                                     <p><a class="btn btn-cta-secondary" href="https://ayuranjan.github.io/MyWebsite/" target="_blank"><i class="fa fa-external-link"></i> Visit the Site </a></p>
                                 </div><!--//desc-->
@@ -169,7 +181,7 @@
                             <div class="item">
                                 <h3 class="title">Associate Consultant  - <span class="place">Capgemini Technology Services India Limited - Mumbai </span> <span class="year">(Oct 2022  - August 2023 ) </span><span class="label label-theme">Full Time Job</span></h3>
                                 <p>Worked as a <b>Java Developer</b> under Mercedes-Benz Research & Development India. Designed, implemented, and maintained Java features, employing design patterns while performing code reviews.</p>
-                                <p>Implemented and presented innovation idea to replace an existing functionality which can reduce client dependency on specific internal feature. This idea got <b>3rd place among 60 groups for Innocircle 2022</b>,a Mercedes Internal Innovation forum</p>
+                                <p>Implemented <b>micro frontend architecture</b> to complement the existing process, enabling users to autonomously modify their vehicle network topology. This approach empowers network experts to review changes independently, eliminating previous dependencies. Resulting in significantly improved efficiency and user experience. This idea got <b>3rd place among 60 groups for Innocircle 2022</b>,a Mercedes Internal Innovation forum</p>
                                 <p>Worked on innovative concepts to optimize project efficiency, leading to a remarkable <b>40 % reduction in export testing time</b>.</p>
                             </div><!--//item-->
 
@@ -178,10 +190,10 @@
                         <div class="content">
                             <div class="item">
                                 <h3 class="title">Senior Analyst - <span class="place">Capgemini Technology Services India Limited - Mumbai </span> <span class="year">(July 2021  - Sep 2022) </span><span class="label label-theme">Full Time Job</span></h3>
-                                <p> Initially, I worked as a <b>Java Full Stack Developer</b> on the 'Arek Oy' project, a Finnish company on a banking project. This project primarily focused on frontend development and utilized a tech stack comprising <b>React, Spring Boot, Redux, and GitLab</b> for version control. It followed a <b>Maven</b> project structure, with a <b>MySQL</b> database as the data repository. My responsibilities included frontend development, tech stack integration, and codebase maintenance.
-                                <p>Later, I transitioned to a <b>Java Developer</b> role at Mercedes-Benz Research & Development India's Project XDIS (Cross-platform Data Information System). In both positions, I conducted comprehensive software analysis, programming, and proficiently handled testing and debugging. I took pride in my ability to create well-designed, efficient, and testable code that contributed to the success of the projects.</p>
+                                <p> Initially, I worked as a <b>Java Full Stack Developer</b> on the 'Arek Oy' project, a Finnish company, on the development of banking system. This project primarily focused on frontend development and utilized a tech stack comprising <b>React, Spring Boot, Redux, and GitLab</b> for version control. It followed a <b>Maven</b> project structure, with a <b>MySQL</b> database as the data repository. My responsibilities included frontend development, tech stack integration, and codebase maintenance.
+                                <p>Later, I transitioned to a <b>Java Developer</b> role at <b>Mercedes-Benz Research & Development India's Project XDIS (Cross-platform Data Information System)</b>, a critical tool for vehicle diagnostics and automatic driving scenarios in Mercedes. In both positions, I conducted comprehensive software analysis, programming, and proficiently handled testing and debugging. I took pride in my ability to create well-designed, efficient, and testable code that contributed to the success of the projects.</p>
                                 <p>XDIS is a <b>core Java</b> program with a <b>swing-based  user interface</b>, which is integrated within the vehicle to download diagnostic data as well as to assist users to change the network topology of their cars. It followed a <b>gradle</b> project structure, with a <b>IBM Db2 </b> database as the data repository.</p>
-                                <p>Dramatically optimized XML file migration time by an impressive <b>66.67 %</b>. Additionally, enhanced the tool's robustness by concurrently implementing indexing strategies for associated database tables.</p>
+                                <p>Dramatically <b>optimized XML file migration</b> time by an impressive <b>66.67 %</b>. Additionally, enhanced the tool's robustness by concurrently implementing indexing strategies for associated database tables.</p>
                             </div><!--//item-->
 
                         </div><!--//content-->
@@ -216,13 +228,13 @@
                         <h2 class="heading sr-only">Basic Information</h2>
                         <div class="content">
                             <ul class="list-unstyled">
-                                <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>Santa Cruz , California , USA</li>
+                                <li><i class="fa fa-map-marker"></i><span class="sr-only">Location:</span>Santa Cruz, California, USA</li>
                                 <li>
                                     <i class="fa fa-envelope-o"></i><span class="sr-only">Email:</span>
                                     <a href="mailto:aranjan1@ucsc.edu">aranjan1@ucsc.edu</a>
                                   </li>
                                 <li><a href="assets/resume/Ayush_Ranjan_Resume.pdf" target="_blank">Download My Resume <i class="fa fa-download"></i></a></li>
-                                <li><a href="assets/transcripts/Transcript With Marksheet and Degree_compressed.pdf" target="_blank">BTech Transcript <i class="fa fa-download"></i></a></li>
+                                <!-- <li><a href="assets/transcripts/Transcript With Marksheet and Degree_compressed.pdf" target="_blank">BTech Transcript <i class="fa fa-download"></i></a></li> -->
                             </ul>
                         </div><!--//content-->
                     </div><!--//section-inner-->
@@ -291,11 +303,11 @@
 
 
                             </div>
-                            <p><b>Other Programming Languages and Frameworks :</b> PyTorch, Flask, JUnit, JDBC, React, Javascript, HTML, Hibernate, Keras, MySQL, PostgreSQL, DB2, MongoDB, Pandas, Numpy</p>
-                            <p><b>Software Development Tools :</b> Github, Log4j, Jenkins, Papyrus, Jira, Azure, Eclipse, VsCode, Vim</p>
+                            <p><b>Other Programming Languages and Frameworks :</b> PyTorch, Flask, JUnit, JDBC, React, Javascript, HTML, Hibernate, Keras, MySQL, PostgreSQL, Ibm DB2, MongoDB, Pandas, Numpy</p>
+                            <p><b>Software Development Tools :</b> Github, Docker, Kubernetes, Log4j, Jenkins, Papyrus, Jira, Azure, Eclipse, VsCode, Vim</p>
                             <p><b>Selected Courseworks :</b> 
                                 <ul style="list-style-type:disc;">
-                                    <li><b>Master's Program:</b> Analysis Algorithms, Applied ML: Deep Learning( Secured A+ ) ,  Design and Implementation of Database Systems, Neural Computation</li>
+                                    <li><b>Master's Program:</b> Analysis of Algorithms, Applied ML: Deep Learning( Secured A+ ),  Design and Implementation of Database Systems, Neural Computation</li>
                                     <li><b>Bachelor's Program :</b>Advanced Data Structures, Design and Analysis of Algorithm, Data Science,  Relational Database Management Systems, Operating System, Advanced Computer Network, Advance Machine Learning Techniques, Natural Language Processing </li>
                                   </ul>
                             </p>
@@ -307,6 +319,18 @@
                     <div class="section-inner">
                         <h2 class="heading">Awards and Achievements</h2>
                         <div class="content">
+                            <div class="item">
+                                <blockquote class="quote">
+                                    <p><b>2023</b></p>
+                                    <p>UCSC Kaggle’s Competition Winner(2023)</p>
+                                </blockquote>
+                            </div><!--//item-->
+                            <div class="item">
+                                <blockquote class="quote">
+                                    <p><b>2022</b></p>
+                                    <p>3rd Place at Innocircle 2022, Mercedes’ Internal Innovation forum</p>
+                                </blockquote>
+                            </div><!--//item-->
                             <div class="item">
                                 <blockquote class="quote">
                                     <p><b>2022</b></p>
