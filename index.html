@@ -1597,6 +1597,8 @@
     </style>
 </head>
 <body>
+    <!-- Disable browser scroll restoration immediately, before anything else -->
+    <script>if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; } window.scrollTo(0, 0);</script>
     <!-- Interactive Ambient Spotlight / Cursor Glow -->
     <div class="cursor-glow" id="cursor-glow"></div>
 
@@ -1754,7 +1756,7 @@
                             <br>
                             <div class="terminal-input-line">
                                 <span class="terminal-prompt">ayush@system:~ $</span>
-                                <input type="text" class="terminal-input" id="term-input" autofocus autocomplete="off" placeholder="Run command...">
+                                <input type="text" class="terminal-input" id="term-input" autocomplete="off" placeholder="Run command...">
                             </div>
                         </div>
                     </div>
@@ -2447,12 +2449,20 @@
             }
         });
 
-        // Always start page at the very top, clear any lingering hash
+        // Disable browser scroll restoration so it never jumps to a saved position
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        // Clear any lingering hash from previous visit
         if (window.location.hash) {
             history.replaceState(null, '', window.location.pathname);
         }
-        window.addEventListener('load', () => {
-            window.scrollTo({ top: 0, behavior: 'instant' });
+        // Force top immediately (synchronous) and again after full load
+        window.scrollTo(0, 0);
+        window.addEventListener('load', () => { window.scrollTo(0, 0); });
+        // Also handle back/forward cache restores
+        window.addEventListener('pageshow', (e) => {
+            if (e.persisted) window.scrollTo(0, 0);
         });
     </script>
 
