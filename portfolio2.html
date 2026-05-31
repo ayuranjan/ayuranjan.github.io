@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Ranjan | Backend Developer Portfolio</title>
+    <meta name="description" content="Ayush Ranjan builds high-scale backend systems, resilient data platforms, and AI-enabled infrastructure.">
+    <meta name="author" content="Ayush Ranjan">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09111c;
+            --bg-soft: #0f1b2b;
+            --panel: rgba(10, 20, 34, 0.78);
+            --panel-strong: rgba(14, 27, 45, 0.92);
+            --line: rgba(148, 163, 184, 0.16);
+            --line-strong: rgba(148, 163, 184, 0.28);
+            --text: #eef4ff;
+            --muted: #a7b6cb;
+            --accent: #61e7c2;
+            --accent-strong: #15c39a;
+            --accent-warm: #ffb454;
+            --danger: #ff7b72;
+            --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+            --radius-xl: 28px;
+            --radius-lg: 22px;
+            --radius-md: 16px;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            min-width: 320px;
+            font-family: "Manrope", sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(97, 231, 194, 0.18), transparent 28%),
+                radial-gradient(circle at 85% 18%, rgba(255, 180, 84, 0.16), transparent 22%),
+                radial-gradient(circle at 50% 110%, rgba(67, 97, 238, 0.14), transparent 30%),
+                linear-gradient(180deg, #07101a 0%, #0b1322 48%, #081018 100%);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 44px 44px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.65), transparent 92%);
+            opacity: 0.2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            width: min(var(--max-width), calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .site-nav {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            backdrop-filter: blur(18px);
+            background: rgba(6, 12, 21, 0.74);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 0;
+        }
+
+        .brand-mark {
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-family: "JetBrains Mono", monospace;
+            font-weight: 700;
+            color: #081018;
+            background: linear-gradient(135deg, var(--accent) 0%, #9df0cb 100%);
+            box-shadow: 0 12px 28px rgba(97, 231, 194, 0.25);
+        }
+
+        .brand-copy strong,
+        .brand-copy span {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .brand-copy strong {
+            font-size: 0.95rem;
+            letter-spacing: 0.01em;
+        }
+
+        .brand-copy span {
+            color: var(--muted);
+            font-size: 0.78rem;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.94rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            color: var(--text);
+            transform: translateY(-1px);
+        }
+
+        .nav-links .resume-link {
+            color: var(--bg);
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent) 0%, #b8ffe7 100%);
+        }
+
+        .hero {
+            padding: 72px 0 40px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.9fr);
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-side {
+            position: relative;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(97, 231, 194, 0.08);
+            border: 1px solid rgba(97, 231, 194, 0.18);
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-family: "JetBrains Mono", monospace;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: clamp(3rem, 7vw, 5.7rem);
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: transparent;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent) 64%, var(--accent-warm) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .hero-intro {
+            margin: 24px 0 0;
+            font-size: 1.12rem;
+            color: var(--muted);
+            max-width: 670px;
+        }
+
+        .hero-intro strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 52px;
+            padding: 0 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--accent) 0%, #caffea 100%);
+            box-shadow: 0 18px 40px rgba(97, 231, 194, 0.22);
+        }
+
+        .button-secondary {
+            border: 1px solid var(--line-strong);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text);
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-top: 34px;
+        }
+
+        .stat {
+            padding: 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.03);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            margin-bottom: 6px;
+            letter-spacing: -0.04em;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero-side {
+            display: grid;
+            gap: 18px;
+        }
+
+        .profile-card,
+        .terminal-card,
+        .section-card,
+        .project-card,
+        .timeline-item,
+        .note-card {
+            border: 1px solid var(--line);
+            background: var(--panel);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-card {
+            overflow: hidden;
+        }
+
+        .profile-photo {
+            position: relative;
+            padding: 22px;
+            background:
+                radial-gradient(circle at top right, rgba(255, 180, 84, 0.2), transparent 30%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+        }
+
+        .profile-photo img {
+            width: 100%;
+            aspect-ratio: 1 / 1.05;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .profile-meta {
+            padding: 0 22px 22px;
+        }
+
+        .profile-meta h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .profile-meta p {
+            margin: 8px 0 0;
+            color: var(--muted);
+        }
+
+        .availability {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding: 10px 12px;
+            border-radius: 999px;
+            background: rgba(21, 195, 154, 0.08);
+            color: #b8ffe7;
+            font-size: 0.88rem;
+        }
+
+        .availability::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 6px rgba(97, 231, 194, 0.12);
+        }
+
+        .terminal-card {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .terminal-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .terminal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #ff5f57; }
+        .terminal-dot.yellow { background: #febc2e; }
+        .terminal-dot.green { background: #28c840; }
+
+        .terminal-body {
+            padding: 18px;
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.9rem;
+            color: #d7e3f8;
+        }
+
+        .terminal-body p {
+            margin: 0 0 10px;
+        }
+
+        .terminal-body p:last-child {
+            margin-bottom: 0;
+        }
+
+        .terminal-body .cmd {
+            color: var(--accent);
+        }
+
+        .section {
+            padding: 26px 0;
+        }
+
+        .section-shell {
+            display: grid;
+            grid-template-columns: 260px minmax(0, 1fr);
+            gap: 26px;
+            align-items: start;
+        }
+
+        .section-label {
+            position: sticky;
+            top: 94px;
+        }
+
+        .section-label span {
+            display: inline-flex;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--accent-warm);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.8rem;
+            margin-bottom: 16px;
+        }
+
+        .section-label h2 {
+            margin: 0 0 10px;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+
+        .section-label p {
+            margin: 0;
+            color: var(--muted);
+            max-width: 220px;
+        }
+
+        .section-card {
+            padding: 26px;
+        }
+
+        .section-card + .section-card {
+            margin-top: 18px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+            gap: 22px;
+        }
+
+        .about-copy p {
+            margin: 0 0 16px;
+            color: var(--muted);
+        }
+
+        .about-copy p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-stack {
+            display: grid;
+            gap: 14px;
+        }
+
+        .note-card {
+            padding: 18px;
+            border-radius: var(--radius-lg);
+        }
+
+        .note-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .note-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .capability-grid,
+        .project-grid,
+        .contact-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .capability-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .capability-card {
+            padding: 22px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .capability-card strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.02rem;
+        }
+
+        .capability-card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.96rem;
+        }
+
+        .timeline {
+            position: relative;
+            display: grid;
+            gap: 18px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            bottom: 12px;
+            left: 23px;
+            width: 1px;
+            background: linear-gradient(180deg, rgba(97, 231, 194, 0.45), rgba(255, 255, 255, 0.05));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-left: 0;
+            padding: 24px 24px 24px 60px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 18px;
+            top: 28px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 7px rgba(97, 231, 194, 0.12);
+        }
+
+        .timeline-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+
+        .timeline-top h3 {
+            margin: 0;
+            font-size: 1.18rem;
+        }
+
+        .timeline-top .meta {
+            color: var(--accent-warm);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.82rem;
+        }
+
+        .timeline-top .stack {
+            display: block;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        .timeline-item ul,
+        .project-card ul,
+        .skill-groups ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--muted);
+        }
+
+        .timeline-item li,
+        .project-card li,
+        .skill-groups li {
+            margin-bottom: 10px;
+        }
+
+        .timeline-item li:last-child,
+        .project-card li:last-child,
+        .skill-groups li:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-card {
+            padding: 24px;
+        }
+
+        .project-card .tag {
+            display: inline-flex;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(255, 180, 84, 0.1);
+            color: var(--accent-warm);
+            font-family: "JetBrains Mono", monospace;
+            font-size: 0.78rem;
+            margin-bottom: 14px;
+        }
+
+        .project-card h3 {
+            margin: 0 0 8px;
+            font-size: 1.2rem;
+        }
+
+        .project-card p {
+            margin: 0 0 14px;
+            color: var(--muted);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .skill-groups {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-box {
+            padding: 22px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .skill-box h3 {
+            margin: 0 0 12px;
+            font-size: 1.04rem;
+        }
+
+        .education-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .education-item {
+            padding: 20px;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .education-item strong {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 1rem;
+        }
+
+        .education-item span,
+        .education-item p {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .contact-grid {
+            grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.8fr);
+        }
+
+        .contact-panel {
+            padding: 26px;
+            border-radius: var(--radius-xl);
+            border: 1px solid var(--line);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+        }
+
+        .contact-panel h3 {
+            margin: 0 0 12px;
+            font-size: 1.3rem;
+        }
+
+        .contact-panel p {
+            color: var(--muted);
+            margin: 0 0 18px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-list a,
+        .contact-list span {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.025);
+            color: var(--text);
+        }
+
+        .contact-list small {
+            color: var(--muted);
+        }
+
+        footer {
+            padding: 14px 0 44px;
+        }
+
+        .footer-line {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        @media (max-width: 1080px) {
+            .hero-grid,
+            .about-grid,
+            .contact-grid,
+            .section-shell,
+            .project-grid,
+            .skill-groups {
+                grid-template-columns: 1fr;
+            }
+
+            .section-label {
+                position: static;
+            }
+
+            .section-label p {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                width: min(var(--max-width), calc(100% - 26px));
+            }
+
+            .nav-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .hero {
+                padding-top: 44px;
+            }
+
+            .quick-stats,
+            .capability-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-card,
+            .project-card,
+            .timeline-item,
+            .contact-panel {
+                padding: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 52px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.5rem, 14vw, 4rem);
+            }
+
+            .hero-intro {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="container nav-inner">
+            <a class="brand" href="#top" aria-label="Ayush Ranjan home">
+                <div class="brand-mark">AR</div>
+                <div class="brand-copy">
+                    <strong>Ayush Ranjan</strong>
+                    <span>Backend Developer • AI Systems</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+                <a class="resume-link" href="assets/resume/Ayush_Ranjan_CV_2026.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="top">
+        <header class="hero">
+            <div class="container hero-grid">
+                <div class="hero-copy">
+                    <div class="eyebrow">backend://high-scale-systems</div>
+                    <h1>
+                        I build <span>resilient backend systems</span>
+                        for products that cannot afford to break.
+                    </h1>
+                    <p class="hero-intro">
+                        I’m <strong>Ayush Ranjan</strong>, a backend developer in San Francisco working across Java microservices, data-intensive platforms, distributed systems, and AI-enabled infrastructure. My recent work spans <strong>2.55B monthly requests</strong>, <strong>$120M in surfaced dormant credits</strong>, and production systems built to stay reliable under real operational pressure.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#experience">Explore Experience</a>
+                        <a class="button button-secondary" href="mailto:aranjan1@ucsc.edu">aranjan1@ucsc.edu</a>
+                    </div>
+                    <div class="quick-stats">
+                        <div class="stat">
+                            <strong>2.55B</strong>
+                            <span>requests handled per month in production payments systems</span>
+                        </div>
+                        <div class="stat">
+                            <strong>$120M</strong>
+                            <span>dormant credits surfaced through new backend workflows</span>
+                        </div>
+                        <div class="stat">
+                            <strong>95%</strong>
+                            <span>query-routing accuracy in multimodal AI agent research</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-side">
+                    <section class="profile-card" aria-label="Profile">
+                        <div class="profile-photo">
+                            <img src="assets/images/ayush.jpg" alt="Portrait of Ayush Ranjan">
+                        </div>
+                        <div class="profile-meta">
+                            <h2>Backend-first engineer</h2>
+                            <p>Focused on APIs, event-driven systems, databases, AI workflows, and the reliability work that makes ambitious products usable.</p>
+                            <div class="availability">Currently building Airbnb payments incentives systems at Altimetrik</div>
+                        </div>
+                    </section>
+
+                    <section class="terminal-card" aria-label="Backend snapshot">
+                        <div class="terminal-top">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                        </div>
+                        <div class="terminal-body">
+                            <p><span class="cmd">$ whoami</span></p>
+                            <p>Backend developer with AI systems depth</p>
+                            <p><span class="cmd">$ stack --primary</span></p>
+                            <p>Java, Python, SQL, Kafka, Dropwizard, Spring Boot, FastAPI, Kubernetes</p>
+                            <p><span class="cmd">$ interests --long</span></p>
+                            <p>distributed systems, data modeling, RAG pipelines, database architecture, production reliability</p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </header>
+
+        <section class="section" id="about">
+            <div class="container section-shell">
+                <div class="section-label">
+                    <span>01 / About</span>
+                    <h2>Engineering with consequence.</h2>
+                    <p>I care about systems that hold up in production, not just demos that look good in slides.</p>
+                </div>
+                <div>
+                    <div class="section-card about-grid">
+                        <div class="about-copy">
+                            <p>I’m from Madhubani, Bihar, and my work sits at the intersection of backend engineering, data systems, and applied AI. I completed my B.Tech in Information Technology at Manipal University Jaipur and later earned my M.S. in Computer Science from UC Santa Cruz, where I focused on AI systems and database-oriented work.</p>
+                            <p>Professionally, I’ve worked across enterprise diagnostics, research labs, and consumer-scale product infrastructure. That range matters to me. It taught me how to think about schema design, asynchronous flows, performance bottlenecks, and product constraints as one connected engineering problem rather than separate disciplines.</p>
+                            <p>I’m especially interested in building software that turns technical depth into measurable business outcomes: faster workflows, safer automation, stronger retrieval, better observability, and cleaner operational behavior at scale.</p>
+                        </div>
+                        <div class="highlight-stack">
+                            <div class="note-card">
+                                <strong>Current focus</strong>
+                                <p>High-concurrency microservices, event-driven workflows, and production systems in payments infrastructure.</p>
+                            </div>
+                            <div class="note-card">
+                                <strong>Research thread</strong>
+                                <p>RAG reliability, explainability, multimodal agents, vector search, and evaluation-driven AI system design.</p>
+                            </div>
+                            <div class="note-card">
+                                <strong>Teaching lens</strong>
+                                <p>Teaching Assistant for Database Systems four times and Software Engineering once, with a strong bias toward making complex systems legible.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-card">
+                        <div class="capability-grid">
+                            <article class="capability-card">
+                                <strong>Distributed backend systems</strong>
+                                <p>Java services, RPC boundaries, queue-driven workflows, persistence layers, and performance-aware designs built for real traffic.</p>
+                            </article>
+                            <article class="capability-card">
+                                <strong>Data modeling and database work</strong>
+                                <p>Schema evolution, query tuning, relational consistency checks, and storage strategies shaped around operational correctness.</p>
+                            </article>
+                            <article class="capability-card">
+                                <strong>AI-augmented infrastructure</strong>
+                                <p>RAG pipelines, evaluation frameworks, vector retrieval, agent routing, and practical ML systems that integrate with production services.</p>
+                            </article>
+                            <article class="capability-card">
+                                <strong>End-to-end system ownership</strong>
+                                <p>From research prototypes and internal tools to deployment pipelines, CI/CD, containerization, and runtime behavior under load.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="experience">
+            <div class="container section-shell">
+                <div class="section-label">
+                    <span>02 / Experience</span>
+                    <h2>Work that shipped.</h2>
+                    <p>The throughline is backend ownership, systems thinking, and measurable impact.</p>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-top">
+                            <div>
+                                <h3>Backend Developer · Altimetrik for Airbnb</h3>
+                                <span class="stack">Dropwizard, Kafka, Thrift RPC, MySQL, Redis, Bazel, Kubernetes</span>
+                            </div>
+                            <div class="meta">Sep 2025 - Present · San Francisco</div>
+                        </div>
+                        <ul>
+                            <li>Engineered high-concurrency Java microservices for Airbnb’s payments incentives platform, handling roughly 2.55 billion requests per month at an average 5.06k QPS.</li>
+                            <li>Co-architected Thrift RPC endpoints that surfaced $120M in dormant user credits and fed automated re-engagement flows.</li>
+                            <li>Built event-driven producer-consumer workflows using Kafka to automate the lifecycle of virtual credit cards and refund reconciliation.</li>
+                            <li>Improved internal developer velocity by extending Claude Code workflows with custom commands and skills tailored to the payments codebase.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-top">
+                            <div>
+                                <h3>Graduate Researcher · AIEA Lab, UC Santa Cruz</h3>
+                                <span class="stack">Python, LangGraph, FastAPI, Docker, Kubernetes, CI/CD</span>
+                            </div>
+                            <div class="meta">Oct 2024 - Aug 2025 · Santa Cruz</div>
+                        </div>
+                        <ul>
+                            <li>Designed and evaluated more than 10 RAG architectures for campus-wide chatbot use cases, improving reliability and explainability across university support flows.</li>
+                            <li>Fine-tuned open-source models for university-specific tone and factual behavior, producing domain-adapted responses for student and administrative queries.</li>
+                            <li>Measured 35-50% gains over baseline RAG setups depending on query complexity and evaluation metric.</li>
+                            <li>Built a deployment pipeline with FastAPI, Docker, Kubernetes, load balancing, monitoring, and CI/CD for scalable rollout.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-top">
+                            <div>
+                                <h3>AI Research Intern · IRKM Lab, UC Santa Cruz</h3>
+                                <span class="stack">Python, Flask, Dialogflow, LangGraph, Whisper, Pinecone, Computer Vision</span>
+                            </div>
+                            <div class="meta">Jul 2024 - Sep 2024 · Santa Cruz</div>
+                        </div>
+                        <ul>
+                            <li>Built a zero-to-one multimodal AI agent for smart wearable hardware, spanning wake-word detection, intent classification, real-time processing, and query routing.</li>
+                            <li>Designed intelligent routing with 95% accuracy for distinguishing new versus continuous queries across prebuilt and open-domain workflows.</li>
+                            <li>Implemented a real-time fusion pipeline combining Whisper transcription, computer vision, and vector search with tool fallback when confidence dropped.</li>
+                            <li>Developed an asynchronous memory manager for embeddings and persistent multimodal storage, enabling sub-500ms inference for key commands.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-top">
+                            <div>
+                                <h3>Associate Consultant / Senior Analyst · Capgemini</h3>
+                                <span class="stack">Java, Spring Boot, React, SQL, IBM Db2, ETL, XML, Autosar, CI/CD</span>
+                            </div>
+                            <div class="meta">Jan 2021 - Aug 2023 · India</div>
+                        </div>
+                        <ul>
+                            <li>Led data modeling work for Mercedes-Benz’s XDIS platform, driving schema evolution for vehicle topology change requests and enterprise diagnostics.</li>
+                            <li>Designed Java ETL workflows to process large XML diagnostic files into relational models in Db2, supporting efficient migration and validation.</li>
+                            <li>Wrote and tuned complex SQL queries and views for historical topology comparisons, relational checks, and automation support.</li>
+                            <li>Built a micro-frontend architecture that earned 3rd place at Innocircle 2022 and cut review workflow time by more than 50%.</li>
+                            <li>Improved migration and export performance through indexing strategies, Autosar wrappers, and import optimizations, reducing critical workflow times by 40-66%.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="container section-shell">
+                <div class="section-label">
+                    <span>03 / Projects</span>
+                    <h2>Selected builds.</h2>
+                    <p>Projects that best show backend depth, systems design, and applied AI execution.</p>
+                </div>
+                <div class="project-grid">
+                    <article class="project-card">
+                        <div class="tag">Semantic Code Search</div>
+                        <h3>Fathom</h3>
+                        <p>A code-aware search engine for LLM agents that unifies semantic, structural, and literal search behind a FastAPI interface.</p>
+                        <ul>
+                            <li>Combined Tree-sitter, sentence-transformers, SCIP, SQLite, and ChromaDB into a project-aware indexing pipeline.</li>
+                            <li>Designed it as an MCP-compatible tool to improve repository grounding and reduce hallucinations in code synthesis tasks.</li>
+                        </ul>
+                        <a class="project-link" href="https://github.com/ayuranjan/Fathom" target="_blank" rel="noopener noreferrer">View project ↗</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="tag">Microservices</div>
+                        <h3>Video to MP3 Converter</h3>
+                        <p>An asynchronous media pipeline built as a microservices system with authentication, upload, conversion, and storage responsibilities separated cleanly.</p>
+                        <ul>
+                            <li>Used RabbitMQ for queue-based processing and MongoDB GridFS for large-file storage.</li>
+                            <li>Containerized and orchestrated the stack with Docker, Kubernetes, and Minikube.</li>
+                        </ul>
+                        <a class="project-link" href="https://github.com/ayuranjan/Video-to-Mp3-Converter" target="_blank" rel="noopener noreferrer">View project ↗</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="tag">Research Systems</div>
+                        <h3>CLIP Image Encoding Glitch Analysis</h3>
+                        <p>Research work focused on identifying systematic image-encoding faults in CLIP through discrepancy analysis and transformation-aware evaluation.</p>
+                        <ul>
+                            <li>Used DAF, TCAC, and DINOv2 comparisons to expose 14 systemic faults, including 4 novel ones.</li>
+                            <li>Earned an A+ in UCSC’s Neural Computation course for the project.</li>
+                        </ul>
+                        <a class="project-link" href="https://arxiv.org/pdf/2407.00592" target="_blank" rel="noopener noreferrer">Read paper ↗</a>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="tag">Deep Learning</div>
+                        <h3>Sentiment Analysis with CNN</h3>
+                        <p>A sentence classification system built with PyTorch, GloVe, and convolutional layers designed to capture multiple n-gram patterns.</p>
+                        <ul>
+                            <li>Reached 87% test accuracy after a compact training cycle and received full marks as an undergraduate minor project.</li>
+                            <li>Demonstrated practical NLP modeling discipline rather than just benchmark-chasing.</li>
+                        </ul>
+                        <a class="project-link" href="https://github.com/ayuranjan/Sentiment-Analysis-using-CNN-" target="_blank" rel="noopener noreferrer">View project ↗</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <div class="container section-shell">
+                <div class="section-label">
+                    <span>04 / Skills</span>
+                    <h2>Tools I reach for.</h2>
+                    <p>Broad range, but strongest where backend architecture and systems reliability meet.</p>
+                </div>
+                <div>
+                    <div class="section-card skill-groups">
+                        <div class="skill-box">
+                            <h3>Backend and infrastructure</h3>
+                            <ul>
+                                <li>Java, Python, Spring Boot, Dropwizard, FastAPI, Flask</li>
+                                <li>Kafka, Thrift RPC, REST APIs, producer-consumer workflows</li>
+                                <li>Docker, Kubernetes, Bazel, Jenkins, CI/CD</li>
+                                <li>Redis, MySQL, PostgreSQL, IBM Db2, MongoDB, pgvector</li>
+                            </ul>
+                        </div>
+                        <div class="skill-box">
+                            <h3>AI systems and data</h3>
+                            <ul>
+                                <li>LangGraph, LangChain, RAG pipelines, vector databases, Pinecone</li>
+                                <li>Whisper, Hugging Face, TensorFlow, Keras, PyTorch, scikit-learn</li>
+                                <li>SQL optimization, schema design, ETL, embeddings, evaluation frameworks</li>
+                                <li>Dialogflow, computer vision pipelines, multimodal workflows</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="section-card education-list">
+                        <div class="education-item">
+                            <strong>M.S. in Computer Science · UC Santa Cruz</strong>
+                            <span>3.92/4.0 · Sep 2023 - Aug 2025</span>
+                            <p>Advanced work in algorithms, database systems, neural computation, and advanced computer vision.</p>
+                        </div>
+                        <div class="education-item">
+                            <strong>B.Tech in Information Technology · Manipal University Jaipur</strong>
+                            <span>8.03/10 · Jun 2017 - May 2021</span>
+                            <p>Strong foundation across data structures, operating systems, networks, databases, machine learning, and NLP.</p>
+                        </div>
+                        <div class="education-item">
+                            <strong>Awards and highlights</strong>
+                            <span>Selected recognition</span>
+                            <p>UCSC Kaggle Competition Winner, 3rd place at Innocircle 2022, and Azure AZ-900 certification with a 940/1000 score.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container section-shell">
+                <div class="section-label">
+                    <span>05 / Contact</span>
+                    <h2>Let’s build something robust.</h2>
+                    <p>If the work involves scale, systems clarity, or backend ownership, I’m interested.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-panel">
+                        <h3>Open to backend, platform, and AI systems conversations.</h3>
+                        <p>I’m most effective on teams that value technical rigor, clear interfaces, and software that behaves well under real load.</p>
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="mailto:aranjan1@ucsc.edu">Email Me</a>
+                            <a class="button button-secondary" href="assets/resume/Ayush_Ranjan_CV_2026.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+                        </div>
+                    </div>
+                    <div class="contact-panel">
+                        <div class="contact-list">
+                            <a href="mailto:aranjan1@ucsc.edu">
+                                <span>Email</span>
+                                <small>aranjan1@ucsc.edu</small>
+                            </a>
+                            <a href="https://www.linkedin.com/in/ayuranjan/" target="_blank" rel="noopener noreferrer">
+                                <span>LinkedIn</span>
+                                <small>linkedin.com/in/ayuranjan</small>
+                            </a>
+                            <a href="https://github.com/ayuranjan" target="_blank" rel="noopener noreferrer">
+                                <span>GitHub</span>
+                                <small>github.com/ayuranjan</small>
+                            </a>
+                            <span>
+                                <span>Location</span>
+                                <small>San Francisco, CA, USA</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-line">
+            <span>Ayush Ranjan</span>
+            <span>Designed for backend credibility, not template aesthetics.</span>
+        </div>
+    </footer>
+</body>
+</html>
